@@ -1,6 +1,7 @@
 ---
-title: "Spiny Lobsters SBC Study"
-author: "Allison Bailey"
+title: "Analysis of Spiny Lobster size and abundance based on data from Santa Barbara Coastal Long-Term Ecological Research (SBC LTER) 2012-2018"
+subtitle: "A mini-report prepared for the ESM 206 Teaching Staff"
+author: "Allison Bailey and Becca Reynolds"
 date: "11/10/2019"
 output: html_document
 editor_options: 
@@ -22,7 +23,6 @@ library(paletteer)
 library(DT)
 library(plotly)
 library(expss)
-library(mutils)
 library(kableExtra)
 ```
 
@@ -225,26 +225,6 @@ lob_affil +
 
 ```
 
-```{r include=FALSE}
-# Or we could use the existing `effsize::cohen.d()` function instead of creating our own. Let's use it here to check that results match for our function and the `cohen.d` function: 
-
-lob_cohen <- effsize::cohen.d(mpa_sample, nonmpa_sample, na.rm = TRUE)
-
-# Then in our report, we would want to include the actual means of the samples, and the effect size, possibly the confidence interval for each, and then the *least interesting thing* shoud be the statement of significance associate with our t-test.
-
-lob_kable <- lobster_name %>% 
-  kable(col.names = c("Name", 
-                     "Value", 
-                     "Volume (cubic feet)",
-                     "mpa")
-        ) %>% 
-  kable_styling(bootstrap_options = "striped", 
-                full_width = F,
-                position = "left"
-                ) %>% 
-  add_header_above(c("Black cherry tree metrics" = 3))
-
-```
 
 ```{r echo=FALSE}
 lobster_ysite <- lobster_date %>%
