@@ -1,5 +1,5 @@
 ---
-title: "Analysis of Spiny Lobster size and abundance based on data from Santa Barbara Coastal Long-Term Ecological Research (SBC LTER) 2012-2018"
+title: "Analysis of Spiny Lobster size and abundance based on data from the Santa Barbara Coastal Long-Term Ecological Research Program (2012-2018)"
 subtitle: "A mini-report prepared for the ESM 206 Teaching Staff"
 author: "Allison Bailey and Becca Reynolds"
 date: "11/10/2019"
@@ -25,6 +25,18 @@ library(plotly)
 library(expss)
 library(kableExtra)
 ```
+#### **Introduction**
+The California Spiny Lobster (Panulirus interruptus) is a keystone species within nearshore kelp forest ecosystems along the Southern California coast, and a target of both commercial and recreational fisheries. [1] Due to its value as a natural resource, the California Spiny Lobster has received state protection for over a century. [1] On January 1, 2012, California Fish and Game established two Marine Protection Areas (MPA), Naples and Isla Vista, as part of a greater Network of Marine Protected Areas. [2] In spring 2012, the California Department of Fish and Wildlife began developing a Fishery Management Plan (FMP) under the Marine Life Management Act, resulting in the publication of the California Spiny Lobster FMP in spring 2016. [1] To understand the effect of fishing on kelp forest ecosystem dynamics the Santa Barbara Coastal Long-Term Ecological Research (SBC LTER) program, established 2000, uses interdisciplinary approaches to study the ecology and dynamics of coastal kelp forest communities in nearshore waters along the coast of southern California. [2] The SBC LTER program collected data on abundance, size, and fishing pressure within California Spiny Lobster populations in the nearshore waters of Santa Barbara Channel from 2012 to 2018. [2] Data collection locations included two MPA sites (Naples and Isla Vista) and three non-MPA sites (Arroyo Quemado, Mohawk and Carpinteria). [2] Abundance and size data were collected by divers prior to fishing season in August and September. [2] Sampling remains ongoing each year. [2]
+
+
+![](lob_map.png)
+
+**Figure 1.** California Spiny Lobster (left) and spatial coverage of collection sites (right).
+Credit: [Joel Sartore](https://www.joelsartore.com/inv002-00050/) and [SBC LTER EDI Data Portal Site](https://portal.edirepository.org/nis/mapbrowse?scope=knb-lter-sbc&identifier=77&revision=newest)
+
+
+
+
 
 ```{r include=FALSE}
 # Read in csv titled "lobster_abundance_sbc_lter.csv"
@@ -225,28 +237,7 @@ lob_affil +
 
 ```
 
-```{r}
-```{r include=FALSE}
-# Or we could use the existing `effsize::cohen.d()` function instead of creating our own. Let's use it here to check that results match for our function and the `cohen.d` function: 
 
-lob_cohen <- effsize::cohen.d(mpa_sample, nonmpa_sample, na.rm = TRUE)
-
-# Then in our report, we would want to include the actual means of the samples, and the effect size, possibly the confidence interval for each, and then the *least interesting thing* shoud be the statement of significance associate with our t-test.
-
-lob_kable <- lobster_name %>% 
-  kable(col.names = c("Name", 
-                     "Value", 
-                     "Volume (cubic feet)",
-                     "mpa")
-        ) %>% 
-  kable_styling(bootstrap_options = "striped", 
-                full_width = F,
-                position = "left"
-                ) %>% 
-  add_header_above(c("Black cherry tree metrics" = 3))
-
-```
-```
 
 
 
