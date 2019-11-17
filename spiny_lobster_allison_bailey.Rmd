@@ -127,7 +127,8 @@ lob_dense <- ggplot(lobster_tidy, aes(x = size_mm)) +
   scale_fill_manual(values=c("#69b3a2", "#69b3a2", "darkslategrey", "#69b3a2", "darkslategrey")) +
   theme(
       legend.position="none",
-      plot.title = element_text(size=14)
+      plot.title = element_text(size=14),
+      strip.text.y = element_text(size = 8)
     ) 
 
 lob_dense +
