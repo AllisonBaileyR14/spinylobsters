@@ -22,7 +22,6 @@ library(paletteer)
 library(DT)
 library(plotly)
 library(expss)
-library(mutils)
 library(kableExtra)
 ```
 
