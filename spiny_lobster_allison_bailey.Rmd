@@ -55,7 +55,9 @@ lobster_date <- lobster_clean %>%
   mutate(date_new = lubridate::ymd(date)) %>%
   mutate(day_new = lubridate::day(date)) %>%
   select(-date) %>%
-   mutate(site_2 = site)
+   mutate(site_2 = site) %>%
+   mutate(mpa_affil = case_when(site %in% c("CARP", "MOHK", "AQUE") ~ "non-MPA",
+                               TRUE ~ "MPA"))
 
 
 
@@ -66,8 +68,8 @@ lobster_date <- lobster_clean %>%
 # Results A: Visually explore changes in annual lobster abundance (counts) by site. After grouping observations to find lobster counts for each year, create a finalized data visualization (no modeling/stats needed) showing changes in annual lobster abundance at the five sites over time. You should decide how to best present the data. Make your data visualization correct, clear, responsible, and professional. Details matter (e.g. is it easier to read a legend or label lines directly? How can I designate between MPA and non-MPA sites? And many more decisions!). Add a figure caption below the graph.
 
 lob_abundance <- lobster_date %>%
-    select(year, site, count) %>%
-  group_by(year, site) %>%
+    select(year, site, count, mpa_affil) %>%
+  group_by(year, site, mpa_affil) %>%
   summarise(
     total_count = sum(count))
 
