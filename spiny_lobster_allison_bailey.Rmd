@@ -25,7 +25,7 @@ library(plotly)
 library(expss)
 library(kableExtra)
 ```
-#### **Introduction**
+**Introduction**
 The California Spiny Lobster (*Panulirus interruptus*) is a keystone species within nearshore kelp forest ecosystems along the Southern California coast, and a target of both commercial and recreational fisheries. [1] Due to its value as a natural resource, the California Spiny Lobster has received state protection for over a century. [1] On January 1, 2012, California Fish and Game established two Marine Protection Areas (MPA), Naples and Isla Vista, as part of a greater Network of Marine Protected Areas. [2] In spring 2012, the California Department of Fish and Wildlife began developing a Fishery Management Plan (FMP) under the Marine Life Management Act, resulting in the publication of the California Spiny Lobster FMP in spring 2016. [1] The Santa Barbara Coastal Long-Term Ecological Research (SBC LTER) program was established in 2000 to examine the effect of fishing on kelp forest ecosystem dynamics. The SBC LTER program uses interdisciplinary approaches to study the ecology and dynamics of coastal kelp forest communities in nearshore waters along the coast of southern California. [2] From 2012 to 2018, the SBC LTER program collected data on California Spiny Lobster abundance and size within populations in the nearshore waters of the Santa Barbara Channel. [2] Data collection locations included two MPA sites (Naples and Isla Vista) and three non-MPA sites (Arroyo Quemado, Mohawk and Carpinteria). [2] Each year in August and September, prior to fishing season, abundance and size data were collected by divers. [2] Sampling continues to take place annually. [2] The following report will compare California Spiny Lobster size and abundance data from 2012 to 2018 across SBC LTER study sites, representing MPA sites in dark grey and non-MPA sites in teal.
 
 
@@ -34,6 +34,8 @@ The California Spiny Lobster (*Panulirus interruptus*) is a keystone species wit
 **Figure 1.** California Spiny Lobster (left) and spatial coverage of SBC LTER data collection sites (right).
 Credit: [Joel Sartore](https://www.joelsartore.com/inv002-00050/) and [SBC LTER EDI Data Portal Site](https://portal.edirepository.org/nis/mapbrowse?scope=knb-lter-sbc&identifier=77&revision=newest)
 
+
+DATA AND METHODS: A brief ‘Data and Methods’ section (5 - 6 sentences) summarizing the data and how it was analyzed. Briefly describe the variables being studied in this report. Include the types of statistical tests performed, significance level used, and software (with version) for analysis.
 ```{r include=FALSE}
 # Read in csv titled "lobster_abundance_sbc_lter.csv"
 
@@ -58,7 +60,7 @@ lobster_date <- lobster_clean %>%
 ```
 
 
-```{r, fig.cap=TRUE, echo=FALSE}
+```{r, fig.cap = "**Figure 2.** Graphs visualize fluctuations in lobster abundance from 2012-2018 across SBC LTER study sites within the Santa Barbara Channel. MPA study sites include Naples (NAPL) and Isla Vista (IVEE). Non-MPA sites include Arroyo Quemado (AQUE), Mohawk (MOHK), and Carpinteria (CARP)."}
 # Results A: Visually explore changes in annual lobster abundance (counts) by site. After grouping observations to find lobster counts for each year, create a finalized data visualization (no modeling/stats needed) showing changes in annual lobster abundance at the five sites over time. You should decide how to best present the data. Make your data visualization correct, clear, responsible, and professional. Details matter (e.g. is it easier to read a legend or label lines directly? How can I designate between MPA and non-MPA sites? And many more decisions!). Add a figure caption below the graph.
 
 lob_abundance <- lobster_date %>%
@@ -94,14 +96,11 @@ lob_abund_plot +  theme(
 
 
 ```
-Caption: 
-**Figure 2.** Graphs visualize fluctuations in lobster abundance from 2012-2018 across SBC LTER study sites within the Santa Barbara Channel. MPA study sites include Naples (NAPL) and Isla Vista (IVEE). Non-MPA sites include Arroyo Quemado (AQUE), Mohawk (MOHK), and Carpinteria (CARP).
-
 **Changes in annual California Spiny Lobster abundance for all Santa Barbara Coastline sites**
 
 As of December 2009, the IUCN Red List of Threatened Species has deemed the California Spiny Lobster a species of Least Concern, with a stable population trend. [3] The California Spiny Lobster abundance data collected by the SBC LTER program examines a small percentage of the total California Spiny Lobster population across the specie's geographic range. However, general trends in this data provide evidence of stable, and in some cases increasing, populations within the nearshore kelp forests of the Santa Barbara Channel. Despite the fact that declines in abundance are observed in Carpenteria from 2017-2018, and Naples and Isla Vista from 2015-2016, all study sites have experienced some level of overall increase in California Spiny Lobster abundance from 2012 to 2018, with Isla Vista, an MPA site, displaying the greatest increase in California Spiny Lobster abundance from 2012-2018.   
 
-```{r echo=FALSE}
+```{r, fig.cap = "**Figure 3.** Graphs visualize California Spiny Lobster size distribution shifts from the start (2012) and the end (2018) of the data collection period examined in this mini-report. These shifts are examined for all SBC LTER study sites."}
 # Results B. Visually explore lobster size distribution shifts by comparing lobster sizes in 2012 and 2018. Visually explore the size distributions for lobsters observed at the 5 different sites in 2012, and in 2018 (i.e. you will have a total of 10 size distributions shown: for each of the 5 sites, one for 2012 and one for 2018). Make a finalized graph that clearly and professionally shows community size distributions at each site in the 2 years, allowing the reader to easily interpret distribution shifts. Add a figure caption below the graph. 
 
 lobster_tidy <- lobster_date %>%
@@ -136,9 +135,6 @@ lob_dense +
     plot.title=element_text(hjust=0.5, vjust=0.5, face='bold'))
 
 ```
-Caption:
-**Figure 3.** Graphs visualize California Spiny Lobster size distribution shifts from the start (2012) and the end (2018) of the data collection period examined in this mini-report. These shifts are examined for all SBC LTER study sites.
-
 **Shifts in community size structure for all Santa Barbara Coastline sites in years 2012 and 2018** 
 
 
