@@ -255,3 +255,7 @@ lob_heat
         
 ```
 
+**References**
+[1] “California Spiny Lobster Fishery Management Plan.” [Online]. Available: https://www.wildlife.ca.gov/Conservation/Marine/Lobster-FMP. [Accessed: 16-Nov-2019].
+
+[2] “Santa Barbara Coastal LTER.” [Online]. Available: https://sbclter.msi.ucsb.edu/. [Accessed: 16-Nov-2019].
