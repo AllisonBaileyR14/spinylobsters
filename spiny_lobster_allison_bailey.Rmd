@@ -1,6 +1,5 @@
 ---
-title: "Impact of Marine Protected Areas on Spiny Lobster Size and Abundance" 
-subtitle: "2012-2018"
+title: "Impact of Marine Protected Areas on Spiny Lobsters (2012-2018)" 
 author: "Allison Bailey and Becca Reynolds"
 date: "11/10/2019"
 output: html_document
@@ -26,7 +25,7 @@ library(expss)
 library(kableExtra)
 ```
 #### **Introduction**
-The California Spiny Lobster (*Panulirus interruptus*) is a keystone species within nearshore kelp forest ecosystems along the Southern California coast, and a target of both commercial and recreational fisheries. [1] Due to its value as a natural resource, the California Spiny Lobster has received state protection for over a century. [1] On January 1, 2012, California Fish and Game established two Marine Protection Areas (MPA), Naples and Isla Vista, as part of a greater Network of Marine Protected Areas. [2] In spring 2012, the California Department of Fish and Wildlife began developing a Fishery Management Plan (FMP) under the Marine Life Management Act, resulting in the publication of the California Spiny Lobster FMP in spring 2016. [1] The Santa Barbara Coastal Long-Term Ecological Research (SBC LTER) program was established in 2000 to examine the effect of fishing on kelp forest ecosystem dynamics. The SBC LTER program uses interdisciplinary approaches to study the ecology and dynamics of coastal kelp forest communities in nearshore waters along the coast of southern California. [2] From 2012 to 2018, the SBC LTER program collected data on California Spiny Lobster abundance and size within populations in the nearshore waters of the Santa Barbara Channel. The following report will compare California Spiny Lobster size and abundance data from 2012 to 2018 across five SBC LTER study sites, representing MPA sites in dark grey and non-MPA sites in teal.
+The California Spiny Lobster (*Panulirus interruptus*) is a keystone species within nearshore kelp forest ecosystems along the Southern California coast, and a target of both commercial and recreational fisheries. [1] Due to its value as a natural resource, the California Spiny Lobster has received state protection for over a century. [1] On January 1, 2012, California Fish and Game established two Marine Protection Areas (MPA), Naples and Isla Vista, as part of a greater Network of Marine Protected Areas. [2] In spring 2012, the California Department of Fish and Wildlife began developing a Fishery Management Plan (FMP) under the Marine Life Management Act, resulting in the publication of the California Spiny Lobster FMP in spring 2016. [1] The Santa Barbara Coastal Long-Term Ecological Research (SBC LTER) program was established in 2000 to examine the effect of fishing on kelp forest ecosystem dynamics. The SBC LTER program uses interdisciplinary approaches to study the ecology and dynamics of coastal kelp forest communities in nearshore waters along the coast of southern California. [2] From 2012 to 2018, the SBC LTER program collected data on California Spiny Lobster abundance and size in the nearshore waters of the Santa Barbara Channel. The following report will compare California Spiny Lobster size and abundance data from 2012 to 2018 across five SBC LTER study sites, representing MPA sites in dark grey and non-MPA sites in teal.
 
 <br>
 
@@ -253,7 +252,7 @@ mpa_nonmpa_ttest
 
 **C. Mean lobster sizes at MPA verses non-MPA sites in 2012 and 2018:**
 
-Mean lobster sizes (mm) measured at the protected site (MPA) samples (`r round(mean_mpa, 2)` $\pm$ `r round(sd_mpa, 2)`, n = `r n_mpa`) differed significantly from non protected sites (non-MPA) samples for both 2012 and 2018, and between the years of 2012 and 2018. (`r round(mean_nonmpa, 2)` $\pm$ `r round(sd_nonmpa, 2)`, n = `r n_nonmpa`) by a paired two-sample t-test (t(`r round(mpa_nonmpa_ttest$parameter, 2)`) = `r round(mpa_nonmpa_ttest$statistic, 2)`, *p* < 7.708e-11). This hypothesis is strengthened by a Cohen's d value of approximately 0.29, indicating a small effect size. 
+Mean lobster sizes (mm) measured at the protected site (MPA) samples (`r round(mean_mpa, 2)` $\pm$ `r round(sd_mpa, 2)`, n = `r n_mpa`) differed significantly from non protected sites (non-MPA) samples for both 2012 and 2018, and between the years of 2012 and 2018 (`r round(mean_nonmpa, 2)` $\pm$ `r round(sd_nonmpa, 2)`, n = `r n_nonmpa`) by a paired two-sample t-test (t(`r round(mpa_nonmpa_ttest$parameter, 2)`) = `r round(mpa_nonmpa_ttest$statistic, 2)`, *p* < 7.708e-11). This hypothesis is strengthened by a Cohen's d value of approximately 0.29, indicating a small effect size. 
 
 <br>
 
@@ -273,17 +272,17 @@ lob_cohen <- effsize::cohen.d(mpa_sample, nonmpa_sample, na.rm = TRUE)
 lobster_density <- lobster_name
 
 lob_affil <- ggplot(lobster_density, aes(x=size_mm, group = mpa_affil)) +
-    geom_density(aes(color = mpa_affil, fill = mpa_affil), alpha=0.8, 
-                 labels = c("MPA Site", "non-MPA site"), name = "MPA Affiliation") +
+    geom_density(aes(color = mpa_affil, fill = mpa_affil), alpha=0.8) +
     ggtitle("Size of Lobsters at MPA Sites vs. Non-MPA Sites") +
   theme_ipsum() +
   facet_wrap(~ year) +
-  scale_color_paletteer_d(awtools, a_palette) +
-  scale_fill_paletteer_d(awtools, a_palette) 
+  scale_color_paletteer_d(awtools, a_palette, guide = FALSE) +
+  scale_fill_paletteer_d(awtools, a_palette, name = "MPA Affiliation")
 
 lob_affil +
    theme(
-    plot.title=element_text( hjust=0.5, vjust=0.5, face='bold')) 
+    plot.title=element_text( hjust=0.5, vjust=0.5, face='bold')
+    )
   
 
 ```
