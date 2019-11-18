@@ -29,7 +29,7 @@ The California Spiny Lobster (*Panulirus interruptus*) is a keystone species wit
 
 <br>
 
-![](lob_map.png){ width=100% }***Figure 1.** California Spiny Lobster (left) and spatial coverage of SBC LTER data collection sites (right).
+![](https://i.imgur.com/Ng7trWn.png){ width=100% }***Figure 1.** California Spiny Lobster (left) and spatial coverage of SBC LTER data collection sites (right).
 Credit: [Joel Sartore](https://www.joelsartore.com/inv002-00050/) and [SBC LTER EDI Data Portal Site](https://portal.edirepository.org/nis/mapbrowse?scope=knb-lter-sbc&identifier=77&revision=newest)*
 
 <br>
