@@ -123,7 +123,6 @@ lobster_tidy2 <- lobster_date %>%
 lob_dense <- ggplot(lobster_tidy, aes(x = size_mm)) +
   geom_density(data = lobster_tidy2, aes(group = site_2), color = "grey", fill = "grey", alpha = 0.5) +
   geom_density(aes(fill = site, color = site), alpha=.4) +
-  scale_color_viridis(discrete = TRUE) +
   theme_ipsum() +
   facet_grid(site ~ year) +
   labs(x = "Size (mm)",
