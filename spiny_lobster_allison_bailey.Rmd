@@ -70,13 +70,14 @@ lob_abundance <- lobster_date %>%
   group_by(year, site, mpa_affil) %>%
   summarise(
     total_count = sum(count))
-
+# Create a second version of Site to lay over as a backdrop for the graphs. 
 lob_site2 <- lobster_date %>%
   select(-site) %>%
   group_by(year, site_2) %>%
   summarise(
     total_count = sum(count)
   )
+# create a line graph with facet wrap.  Make the color of lines represent your sites.  Manually fill the color for MPA vs non MPA sites. 
 
 lob_abund_plot <- ggplot(lob_abundance, aes(x=year, y=total_count)) +
     geom_line(data = lob_site2, aes(group=site_2), color="grey", size=0.5, alpha=0.7) +
@@ -219,6 +220,8 @@ sd_nonmpa <- sd(nonmpa_filter$size_mm, na.rm = TRUE)
 ```
 
 ```{r include=FALSE, warning=FALSE}
+# Welch two T test
+
 mpa_sample <- lobster_name %>%
   filter(mpa_affil == "MPA") %>%
   pull(size_mm)
